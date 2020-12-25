@@ -9,7 +9,7 @@ import android.widget.CheckBox
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class StringAdapter (var ordenadores : MutableList<String>) : RecyclerView.Adapter<StringAdapter.StringViewHolder>() {
+class StringAdapter (var PC_es : MutableList<String>) : RecyclerView.Adapter<StringAdapter.StringViewHolder>() {
 
     class StringViewHolder(var root: View, var textView: TextView, var checkBox: CheckBox) : RecyclerView.ViewHolder(root)
 
@@ -21,7 +21,7 @@ class StringAdapter (var ordenadores : MutableList<String>) : RecyclerView.Adapt
     }
 
     override fun getItemCount(): Int {
-        return ordenadores.size + 1
+        return PC_es.size + 1
     }
 
     override fun onBindViewHolder(holder: StringViewHolder, position: Int) {
@@ -30,7 +30,7 @@ class StringAdapter (var ordenadores : MutableList<String>) : RecyclerView.Adapt
             holder.root.setOnClickListener {
                 val toast = Toast.makeText(it.context, "Eliminando", Toast.LENGTH_LONG)
                 toast.show()
-                ordenadores.remove(String())
+                PC_es.remove(String())
                 notifyDataSetChanged()
             }
             return
@@ -41,14 +41,14 @@ class StringAdapter (var ordenadores : MutableList<String>) : RecyclerView.Adapt
             holder.root.setOnClickListener {
                 val toast = Toast.makeText(it.context, "Insertando...", Toast.LENGTH_LONG)
                 toast.show()
-                ordenadores.add("Ordenador$position")
+                PC_es.add("PC_$position")
                 notifyDataSetChanged()
             }
             return
         }
 
         if (position > 0) {
-            holder.textView.text = ordenadores[position]
+            holder.textView.text = PC_es[position]
             holder.textView.setBackgroundColor(holder.textView.context.getColor(R.color.teal_200))
         }
 

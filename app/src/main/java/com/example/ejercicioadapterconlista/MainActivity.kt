@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createRecyclerView() {
-        val ordenadores= listOf("Ordenador1","Ordenador2","Ordenador3","Ordenador4")
-        adapter = StringAdapter(ordenadores.toMutableList())
+        val listaString = listOf("PC_1","PC_2","PC_3","PC_4")
+        adapter = StringAdapter(listaString.toMutableList())
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
     }
